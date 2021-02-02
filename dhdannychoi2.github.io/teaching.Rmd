@@ -1,0 +1,12 @@
+---
+title: "Teaching"
+output: html_document
+---
+
+|   Institution    |  Class Name                               |   Level   |  Offered     | Syllabus
+| -----------------|-------------------------------------------|-----------|--------------|--------------------|
+|  Pittsburgh            |  Dissertation Overview                    |    G      |  F2020, S2021|  <a href="https://www.dropbox.com/s/usa72wx1l0tfm23/PS2904_Diss_Sem_2020.pdf?dl=0">[F2020]</a>                   |
+|  Pittsburgh            |  Identity Politics Seminar                |    G      |  F2020       | <a href="https://www.dropbox.com/s/qwmyiwod4abm1r8/PS_2330_Identity_Politics_%28Fall_2020%29.pdf?dl=0">[F2020]</a>                   |
+|  Pittsburgh            |  Capstone: Democratic Erosion             |    UG     |  S2020       |   <a href="https://www.dropbox.com/s/e935mj1qsv76jbb/PS1381_Capstone__Building_Democracy.pdf?dl=0">[S2020]</a>                   |
+|  Pittsburgh            |  Coding and Computational Social Science  |    UG     |  S2020       |  <a href="https://www.dropbox.com/s/g7p0y3znv7qj6ga/Syllabus_Draft.CCSS.pdf?dl=0">[S2020]</a>                  |
+|  Pittsburgh            |  Introduction to African Politics         |    UG     |  F2019, S2021|   <a href="https://www.dropbox.com/s/k6zv0vhrl6pzdjy/AfPol_Syllabus_Spr2021.pdf?dl=0">[S2021]</a>                   |
