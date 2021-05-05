@@ -13,13 +13,22 @@
 
 <title>Working Papers</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -36,11 +45,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -53,32 +57,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -89,10 +67,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -109,40 +83,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -170,7 +117,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -182,7 +129,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -193,10 +140,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -208,7 +168,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -272,7 +231,7 @@ $(document).ready(function () {
 
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -348,7 +307,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -373,17 +332,6 @@ $(document).ready(function () {
 <h3>Under Review</h3>
 <details>
 <summary>
-<b>Do Voters Respond to Cross-Ethnic Campaigning in Divided Societies?</b>
-</summary>
-<p>
-Are voters receptive to direct campaign appeals from non-coethnic candidates? Candidates competing for office in ethnically divided societies often seek to win national support by reaching out to voters from different groups. In this context, we argue that candidates may inadvertently dampen their support when personally campaigning among non-coethnic voters. Drawing on the logic of group threat, we claim that the physical presence of a candidate in a non-coethnic constituency, usually through campaign rallies, can heighten voters’ perceptions of intergroup competition. We corroborate this expectation by leveraging a natural experiment that exploits the timing of an unscheduled campaign rally held by a presidential candidate in a non-coethnic constituency during Kenya’s 2017 elections. The logic of group threat becomes evident when comparing survey respondents before and after the rally: the candidate’s post-rally favorability decreases among non-coethnic voters and the proportion of voters identifying in ethnic rather than national terms simultaneously increases.
-</p>
-</details>
-<ul>
-<li>with Leo Arriola (Berkeley), Matthew Gichohi (Bergen), and Ken Opalo (Georgetown) <a href="https://www.dropbox.com/s/2kpphw3uh4rzo1h/ACGO_Rallies.pdf?dl=0">[paper]</a></li>
-</ul>
-<details>
-<summary>
 <b>Ethnic Bias in Judicial Decision-making: Evidence from the Kenyan Appellate Courts</b>
 </summary>
 <p>
@@ -393,6 +341,7 @@ Understanding sources of judicial bias is essential for establishing due process
 <ul>
 <li>with Andy Harris (NYU Abu Dhabi), Fiona Shen-Bayh (William &amp; Mary) <a href="https://www.dropbox.com/s/6dimfyevq0vcb2h/CHS_Courts.pdf?dl=0">[paper]</a></li>
 <li><strong>Winner</strong>, Fiona McGillivray Award for Best Paper, Political Economy Section, APSA, 2020</li>
+<li>Revise and Resubmit at <em>American Political Science Review</em></li>
 </ul>
 <details>
 <summary>
@@ -404,6 +353,19 @@ Can endorsements persuade voters to transcend politicized ethnic divisions to su
 </details>
 <ul>
 <li>with Leo Arriola (Berkeley) and Matthew Gichohi (Bergen) <a href="https://www.dropbox.com/s/cbe30bt8x3xzcdr/ACG_PolEndorse.pdf?dl=0">[paper]</a></li>
+<li>Revise and Resubmit at <em>Journal of Politics</em></li>
+</ul>
+<details>
+<summary>
+<b>The Rejection of Election Results in Africa</b>
+</summary>
+<p>
+Election results in Africa are more likely to be rejected by opposition parties than anywhere else in the world. This rejection rate has remained nearly constant since the renewal of multiparty elections in the early 1990s. We hypothesize that the persistence of this pattern can be explained, in part, by the victory-legitimacy tradeoff that incumbent leaders must negotiate each electoral cycle. Incumbents who rely on violent tactics to secure their hold on power and demonstrate their strength as political actors should be expected to provoke the rejection of election results. Yet, at the same time, incumbents understand that complete rejection of an election can undermine their legitimacy. We theorize that incumbents in such situations can induce greater acceptance of election results by appointing some of their opponents to post-election governments. An analysis of nearly 200 African elections shows that opposition parties are less likely to accept election results when campaign periods are tainted by violence, regardless of the constraints on executive power or the quality of electoral institutions. The analysis further shows that opposition acceptance of election results systematically shapes post-election government formation in Africa: more parties enter the executive cabinet as more opponents accept the results.
+</p>
+</details>
+<ul>
+<li>with Leo Arriola (Berkeley) and Staffan Lindberg (Gothenburg)</li>
+<li>Revise and Resubmit at <em>African Affairs</em></li>
 </ul>
 <details>
 <summary>
@@ -418,20 +380,40 @@ We examine how the expansion of mobile communications infrastructure affects nat
 </ul>
 <details>
 <summary>
-<b>The Rejection of Election Results in Africa</b>
+<b>Do Voters Respond to Cross-Ethnic Campaigning in Divided Societies?</b>
 </summary>
 <p>
-Election results in Africa are more likely to be rejected by opposition parties than anywhere else in the world. This rejection rate has remained nearly constant since the renewal of multiparty elections in the early 1990s. We hypothesize that the persistence of this pattern can be explained, in part, by the victory-legitimacy tradeoff that incumbent leaders must negotiate each electoral cycle. Incumbents who rely on violent tactics to secure their hold on power and demonstrate their strength as political actors should be expected to provoke the rejection of election results. Yet, at the same time, incumbents understand that complete rejection of an election can undermine their legitimacy. We theorize that incumbents in such situations can induce greater acceptance of election results by appointing some of their opponents to post-election governments. An analysis of nearly 200 African elections shows that opposition parties are less likely to accept election results when campaign periods are tainted by violence, regardless of the constraints on executive power or the quality of electoral institutions. The analysis further shows that opposition acceptance of election results systematically shapes post-election government formation in Africa: more parties enter the executive cabinet as more opponents accept the results.
+Are voters receptive to direct campaign appeals from non-coethnic candidates? Candidates competing for office in ethnically divided societies often seek to win national support by reaching out to voters from different groups. In this context, we argue that candidates may inadvertently dampen their support when personally campaigning among non-coethnic voters. Drawing on the logic of group threat, we claim that the physical presence of a candidate in a non-coethnic constituency, usually through campaign rallies, can heighten voters’ perceptions of intergroup competition. We corroborate this expectation by leveraging a natural experiment that exploits the timing of an unscheduled campaign rally held by a presidential candidate in a non-coethnic constituency during Kenya’s 2017 elections. The logic of group threat becomes evident when comparing survey respondents before and after the rally: the candidate’s post-rally favorability decreases among non-coethnic voters and the proportion of voters identifying in ethnic rather than national terms simultaneously increases.
 </p>
 </details>
 <ul>
-<li>Revise and Resubmit at <em>African Affairs</em></li>
-<li>with Leo Arriola (Berkeley) and Staffan Lindberg (Gothenburg)</li>
+<li>with Leo Arriola (Berkeley), Matthew Gichohi (Bergen), and Ken Opalo (Georgetown) <a href="https://www.dropbox.com/s/2kpphw3uh4rzo1h/ACGO_Rallies.pdf?dl=0">[paper]</a></li>
+</ul>
+<details>
+<summary>
+<b>Can Americans Depolarize? Assessing the Effects ofReciprocal Group Reflection on Partisan Polarization</b>
+</summary>
+<p>
+Overcoming America’s deep partisan polarization poses a unique challenge: Americans must be able to disagree on policy while nonetheless agreeing on more fundamental democratic principles. We study one model of depolarization–reciprocal group reflection–inspired by marital counseling and implemented by a non-governmental organization,``Braver Angels.’’ We randomly assigned undergraduate students at four universities either to participate in a Braver Angels workshop or simply to complete three rounds of surveys. The workshops significantly reduced polarization according to explicit and implicit measures. They also increased participants’ willingness to donate to programs aimed at depolarizing political conversations. These effects are consistent across partisan groups, though some dissipate over time. Using qualitative data collected during the workshops, we inductively generate a new theory of depolarization that combines both informational and emotional components such that citizens, moved to empathize with an outgroup, become more likely to internalize new information about outgroup members.
+</p>
+</details>
+<ul>
+<li>with Hannah Baron (Brown), Robert A. Blair (Brown), Laura Gamboa (Utah), Jessica Gottlieb (TAMU), Amanda L. Robinson (OSU), Steven C. Rosenzweig (Boston U.), Meghan M. Turnbull (Georgia), Emily A. West (Pitt)</li>
+</ul>
+<details>
+<summary>
+<b>Navigating ‘Insider’ and ‘Outsider’ Status as Researchers Conducting Field Experiments</b>
+</summary>
+<p>
+</p>
+</details>
+<ul>
+<li>with Sumitra Badrinathan (Oxford), Sabrina Karim (Cornell), Eunji Kim (Vanderbilt), and Yang-Yang Zhou (British Columbia)</li>
 </ul>
 <p><br></br></p>
 </div>
-<div id="working-papers" class="section level3">
-<h3>Working Papers</h3>
+<div id="in-progress" class="section level3">
+<h3>In Progress</h3>
 <details>
 <summary>
 <b>Party Control of Primary Elections in New Democracies</b>
@@ -472,14 +454,43 @@ Although women have entered government in African countries at an unprecedented 
 </ul>
 <details>
 <summary>
-<b>Can Americans Depolarize? Assessing the Effects of Structured, Cross-Partisan Discussion</b>
+<b>The Logic of Judicial Appointments and Purges in Authoritarian Regimes</b>
 </summary>
 <p>
-The American public is deeply polarized along partisan lines. Despite the fact that polarization is negatively correlated with important behavioral outcomes like interpersonal and economic relations, lack of political trust, belief in political legitimacy, and support for democratic norms, we know very little about what could reduce polarization. Can Americans depolarize? If so, how? To answer these questions, we partnered with a non-governmental organization–“Braver Angels”–to assess the effect of one of their depolarization workshops. We randomly assigned undergraduate students from four universities to either participate in the workshop, or simply take our three surveys, baseline, midline and endline. We find that the workshops significantly reduce polarization according to implicit and behavioral measures of affective polarization, but had weaker effects on explicit measures of affective polarization. The effects dissipate over time, but hold across partisan groups. We do not find strong evidence to support any of the potential mechanisms we originally mapped out, but qualitative data collected during the workshops suggests that they may have worked mostly by reducing mass political depolarization, recognizing ingroup heterogeneity, and enhancing outgroup empathy.
 </p>
 </details>
 <ul>
-<li>with Hannah Baron (Brown), Robert A. Blair (Brown), Laura Gamboa (Utah), Jessica Gottlieb (TAMU), Amanda L. Robinson (OSU), Steven C. Rosenzweig (Boston U.), Meghan M. Turnbull (Georgia), Emily A. West (Pitt)</li>
+<li>with Fiona Shen-Bayh (William &amp; Mary)</li>
+</ul>
+<details>
+<summary>
+<b>Ethnic Incivility: Evidence from Kenyan and Zambian Parliamentary Debates</b>
+</summary>
+<p>
+</p>
+</details>
+<ul>
+<li>with Fiona Shen-Bayh (William &amp; Mary)</li>
+</ul>
+<details>
+<summary>
+<b>The Effect of Transient Exposure to Refugees</b>
+</summary>
+<p>
+</p>
+</details>
+<ul>
+<li>with Nicholas Sabmanis (Penn)</li>
+</ul>
+<details>
+<summary>
+<b>The Colonial Origins of National Identity: Evidence from Railroads in Africa</b>
+</summary>
+<p>
+</p>
+</details>
+<ul>
+<li>with Benjamin Laughlin (NYU Abu Dhabi)</li>
 </ul>
 </div>
 
@@ -510,7 +521,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
