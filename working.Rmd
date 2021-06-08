@@ -1,0 +1,171 @@
+---
+title: "Working Papers"
+output: html_document
+---
+
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85065900-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-85065900-1');
+</script>
+
+</head>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br></br>
+
+### Under Review ###
+
+<details>
+<summary>
+<b>Ethnic Bias in Judicial Decision-making: Evidence from the Kenyan Appellate Courts</b>
+</summary>
+<p>Understanding sources of judicial bias is essential for establishing due process. Yet, theories of judicial decision-making are largely rooted in advanced democracies. To address this gap, this paper examines sources of judicial bias in Kenya, an emerging democracy where ethnicity is understood to play a critical role in shaping sociopolitical outcomes. Using original data from nearly 10,000 criminal appeals from the Kenyan high courts, we exploit the conditional random assignment of judges to estimate the effect of judge-defendant coethnicity on appeal decisions. We find that judges are 3-5% points more likely to grant the appeal of a coethnic defendant compared to a noncoethnic’s. To understand mechanisms, we use text-as-data approaches to analyze the sentiment of written judgments. Our analysis reveals that judges use more favorable terms – pertaining to trust – when adjudicating the fate of coethnics, which we interpret as evidence of an in-group favoritism rather than an out-group derogation mechanism.</p>
+</details>
+
+* with Andy Harris (NYU Abu Dhabi), Fiona Shen-Bayh (William & Mary) <a href="https://www.dropbox.com/s/6dimfyevq0vcb2h/CHS_Courts.pdf?dl=0">[paper]</a>
+* __Winner__, Fiona McGillivray Award for Best Paper, Political Economy Section, APSA, 2020
+* Revise and Resubmit at _American Political Science Review_
+
+<details>
+<summary>
+<b>Increasing Cross-Ethnic Trust: Political Endorsements as Vicarious Contact</b>
+</summary>
+<p>Can endorsements persuade voters to transcend politicized ethnic divisions to support candidates from other groups? We argue that endorsements can serve as a form of vicarious contact, allowing voters to observe cooperative interactions between coethnic and non-coethnic politicians. This vicarious contact encourages voters to positively update their beliefs about their potential treatment under a non-coethnic in office. In assessing this claim, we provide evidence from Kenya, where simulated radio news segments were used to experimentally manipulate the ethnic relationship among voters, endorsers, and candidates. We find that voters who hear endorsements from their coethnics, as opposed to non-coethnic endorsements or no endorsement at all, are significantly more likely to vote for a non-coethnic candidate. We further find evidence suggesting this result is mediated by coethnic trust: the trust premium enjoyed by coethnic endorsers is extended to non-coethnic candidates. Voters believe endorsed candidates are more likely to provide non-discriminatory representation.</p>
+</details>
+
+* with Leo Arriola (Berkeley) and Matthew Gichohi (Bergen) <a href="https://www.dropbox.com/s/cbe30bt8x3xzcdr/ACG_PolEndorse.pdf?dl=0">[paper]</a>
+* Revise and Resubmit at _Journal of Politics_
+
+<details>
+<summary>
+<b>The Rejection of Election Results in Africa</b>
+</summary>
+<p>Election results in Africa are more likely to be rejected by opposition parties than anywhere else in the world. This rejection rate has remained nearly constant since the renewal of multiparty elections in the early 1990s. We hypothesize that the persistence of this pattern can be explained, in part, by the victory-legitimacy tradeoff that incumbent leaders must negotiate each electoral cycle. Incumbents who rely on violent tactics to secure their hold on power and demonstrate their strength as political actors should be expected to provoke the rejection of election results. Yet, at the same time, incumbents understand that complete rejection of an election can undermine their legitimacy. We theorize that incumbents in such situations can induce greater acceptance of election results by appointing some of their opponents to post-election governments. An analysis of nearly 200 African elections shows that opposition parties are less likely to accept election results when campaign periods are tainted by violence, regardless of the constraints on executive power or the quality of electoral institutions. The analysis further shows that opposition acceptance of election results systematically shapes post-election government formation in Africa: more parties enter the executive cabinet as more opponents accept the results.</p>
+</details>
+
+* with Leo Arriola (Berkeley) and Staffan Lindberg (Gothenburg)
+* Revise and Resubmit at _African Affairs_
+
+<details>
+<summary>
+<b>Mobile Communication Technology and National Identity in Sub-Saharan Africa</b>
+</summary>
+<p>We examine how the expansion of mobile communications infrastructure affects national identity in sub-Saharan Africa. We argue that in diverse societies where elections are contested along ethnic lines, access to mobile internet technology undermines national identity because it facilitates voter exposure to the polarizing tendencies of the internet. Applying both difference-in-difference and geographic boundary designs on mobile coverage maps and geocoded survey data of more than 75,000 African citizens, we show that access to mobile internet reduces identification with the nation by up to 8–9 percentage points. To establish support for our electoral mechanism, we exploit as-if random variation in the timing of individuals' survey interviews to Presidential elections, during which we argue divisive and polarizing forces are at their peak. Our analysis shows that electoral proximity intensifies the negative effect of mobile internet. Our findings highlights how technological innovations can affect the process of state-building in diverse societies.</p>
+</details>
+
+* with Benjamin Laughlin (NYU Abu Dhabi) and Anna Schultz (Independent Researcher) <a href="https://www.dropbox.com/s/0ccs05ypj0t5pxc/CLS_MTechID.pdf?dl=0">[paper]</a>
+
+<details>
+<summary>
+<b>Do Voters Respond to Cross-Ethnic Campaigning in Divided Societies?</b>
+</summary>
+<p>Are voters receptive to direct campaign appeals from non-coethnic candidates? Candidates competing for office in ethnically divided societies often seek to win national support by reaching out to voters from different groups. In this context, we argue that candidates may inadvertently dampen their support when personally campaigning among non-coethnic voters. Drawing on the logic of group threat, we claim that the physical presence of a candidate in a non-coethnic constituency, usually through campaign rallies, can heighten voters’ perceptions of intergroup competition. We corroborate this expectation by leveraging a natural experiment that exploits the timing of an unscheduled campaign rally held by a presidential candidate in a non-coethnic constituency during Kenya’s 2017 elections. The logic of group threat becomes evident when comparing survey respondents before and after the rally: the candidate’s post-rally favorability decreases among non-coethnic voters and the proportion of voters identifying in ethnic rather than national terms simultaneously increases.</p>
+</details>
+
+* with Leo Arriola (Berkeley), Matthew Gichohi (Bergen), and Ken Opalo (Georgetown) <a href="https://www.dropbox.com/s/2kpphw3uh4rzo1h/ACGO_Rallies.pdf?dl=0">[paper]</a>
+
+
+<details>
+<summary>
+<b>Can Americans Depolarize? Assessing the Effects of Reciprocal Group Reflection on Partisan Polarization</b>
+</summary>
+<p>Overcoming America's deep partisan polarization poses a unique challenge: Americans must be able to disagree on policy while nonetheless agreeing on more fundamental democratic principles. We study one model of depolarization--reciprocal group reflection--inspired by marital counseling and implemented by a non-governmental organization,''Braver Angels.'' We randomly assigned undergraduate students at four universities either to participate in a Braver Angels workshop or simply to complete three rounds of surveys. The workshops significantly reduced polarization according to explicit and implicit measures. They also increased participants' willingness to donate to programs aimed at depolarizing political conversations. These effects are consistent across partisan groups, though some dissipate over time. Using qualitative data collected during the workshops, we inductively generate a new theory of depolarization that combines both informational and emotional components such that citizens, moved to empathize with an outgroup, become more likely to internalize new information about outgroup members. </p>
+</details>
+
+* with Hannah Baron (Brown), Robert A. Blair (Brown), Laura Gamboa (Utah), Jessica Gottlieb (TAMU), Amanda L. Robinson (OSU), Steven C. Rosenzweig (Boston U.), Meghan M. Turnbull (Georgia), Emily A. West (Pitt) <a href="https://osf.io/3x7z8">[paper]</a><a href="https://www.dropbox.com/s/2efc4b0txqr43l4/Policy%20Brief_Divided%20America_updatedV4.pdf?dl=0">[policy brief]</a>
+
+<details>
+<summary>
+<b>Navigating 'Insider' and 'Outsider' Status as Researchers Conducting Field Experiments</b>
+</summary>
+<p></p>
+</details>
+
+* with Sumitra Badrinathan (Oxford), Sabrina Karim (Cornell), Eunji Kim (Vanderbilt), and Yang-Yang Zhou (British Columbia) <a href="https://www.dropbox.com/s/3if4jvyuvpk7xdn/KBCKZ_InsiderOutsider.pdf?dl=0">[paper]</a>
+
+<br></br>
+
+### In Progress ###
+
+<details>
+<summary>
+<b>Party Control of Primary Elections in New Democracies</b>
+</summary>
+<p>Can political parties retain control over party nominations when candidates are selected through primary elections? As parties in new democracies increasingly open up their candidate selection processes to mass participation, existing literature has been skeptical as to the ability of parties to retain their influence over who will be chosen to represent the party at the ballot box. Contrary to this skepticism, I argue that parties remain key players despite the introduction of primaries, and that party leaders are able to obtain their goals by leveraging their persuasive influence over primary voters. I test this argument using original data on party endorsements and nominations as well as an experiment on primary voters in Kenya. Results suggest that parties can critically shape primary outcomes using endorsements, and that primary voters utilize endorsements to make inferences about a candidate’s electoral prospects and ability to deliver local development.</p>
+</details>
+
+
+<details>
+<summary>
+<b>Congruence or Disconnect? Local Issue Priorities and Public Spending in Kenya</b>
+</summary>
+<p>I investigate whether legislators in the Kenyan parliament (MPs) are responsive to the preferences of their local constituents. I first assess the level of congruence between constituency-level issue priorities estimated via multilevel regression and post-stratification and the sectoral allocation decisions made by MPs regarding the Constituency Development Fund. My analyses yield three key insights. First, overall, evidence suggests a disconnect rather than congruence. Second, the level of congruence between constituency-level public opinion and MP spending decisions are heterogeneous across different spending categories. Third, any limited congruence observed is driven primarily by swing constituencies in which the MP won with a narrow margin of victory in the previous election. I expand on this exploratory analysis to causally identify the effect of local issue salience by exploiting exogenous sources of variation across two public spending categories: water and security. The results of the analysis confirm that despite substantial increases in local issue salience, only legislators that are competing in swing constituencies respond to constituent preferences by increasing spending in those categories.</p>
+</details>
+
+
+<details>
+<summary>
+<b>Accountability Under Devolved Government: Evidence from a Field Experiment in Kenya</b>
+</summary>
+<p>Political decentralization in African countries has the potential to transform the relationship between citizens and their representatives. But scholars have yet to fully understand whether or how voters adapt to the accountability demands imposed by having to elect representatives at multiple levels of government. Do voter assessments of local politicians depend on coethnicity, as prior studies have shown with national politicians? Are voters willing to update their assessments of incumbent performance based on new information? To answer such questions, we examine how voter evaluations of local incumbents are conditioned by information and partisanship. An experimental survey design presented respondents in two Kenyan counties, Uasin Gishu and Trans Nzoia, with randomized positive versus negative information about the performance of incumbent county governors in the run-up to the 2017 elections. The results show that some voters are willing to update their vote preference based on positive information about incumbent performance. However, these effects are found almost exclusively in Trans Nzoia, where exposure to positive information significantly increases the likelihood of voting for the incumbent even among non-coethnics, non-copartisans, and respondents with prior negative evaluations of the incumbent. In Uasin Gishu, by contrast, we find no such effects. We postulate that the differences between the two counties may be driven by distinct patterns in the distribution of political support for the two incumbents.</p>
+</details>
+
+* with Leo Arriola (Berkeley), Matthew Gichohi (Bergen), and Ken Opalo (Georgetown)
+
+
+<details>
+<summary>
+<b>Partisanship, Gender, and the Structure of Politician Networks in Zambia</b>
+</summary>
+<p>Although women have entered government in African countries at an unprecedented rate over the past three decades, it remains unknown to what extent they have acquired the influence necessary to shape policymaking. Are women able to exercise personal influence to the same degree or in the same ways as their male counterparts? We argue that women tend to be less influential than men due to the structure of their personal networks with other politicians. Prior scholarship on African politics has demonstrated that political outcomes depend on the personal ties that connect politicians to one other. Based on a novel network survey among Zambian candidates, we demonstrate that women tend to be peripherally situated within networks. We find that women are systematically less likely to be connected to others in social or work networks among politicians. We also demonstrate that, while having fewer connections than men, women have connections with more important people in both social and work networks.</p>
+</details>
+
+* with Leo Arriola (Berkeley), Justine Davis (Michigan), Melanie Phillips (Berkeley), Lise Rakner (Bergen) 
+
+<details>
+<summary>
+<b>The Logic of Judicial Appointments and Purges in Authoritarian Regimes</b>
+</summary>
+<p></p>
+</details>
+
+* with Fiona Shen-Bayh (William & Mary)
+
+<details>
+<summary>
+<b>Ethnic Incivility: Evidence from Kenyan and Zambian Parliamentary Debates</b>
+</summary>
+<p></p>
+</details>
+
+* with Fiona Shen-Bayh (William & Mary)
+
+<details>
+<summary>
+<b>The Effect of Transient Exposure to Refugees</b>
+</summary>
+<p></p>
+</details>
+
+* with Nicholas Sabmanis (Penn)
+
+<details>
+<summary>
+<b>The Colonial Origins of National Identity: Evidence from Railroads in Africa</b>
+</summary>
+<p></p>
+</details>
+
+* with Benjamin Laughlin (NYU Abu Dhabi)
+
+
+
