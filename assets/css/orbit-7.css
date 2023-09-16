@@ -39,6 +39,22 @@ p {
   line-height: 1.5;
 }
 
+/* button */
+.button {
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #98AFC7;} /* Blue */
+
 .wrapper {
   background: #357EC7;
   max-width: 960px;
