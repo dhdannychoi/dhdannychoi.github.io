@@ -1,0 +1,19 @@
+/* css styles */
+.subtitle {
+    font-size: 16px; /* Adjust to your preferred size */
+    font-weight: normal;
+    color: black; /* Optional: adjust color */
+    text-align: center; /* Optional: center the subtitle */
+}
+
+ul {
+    padding-left: 60px; /* Adjust this value to increase indentation */
+}
+
+p { 
+  color: #000000; 
+}  
+
+h1, h2, h3, h4, h5, h6 {
+color: #000000;
+}
