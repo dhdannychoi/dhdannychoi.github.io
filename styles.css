@@ -1,5 +1,6 @@
 /* css styles */
 .subtitle {
+    font-family: "Lato", sans-serif;
     font-size: 16px; /* Adjust to your preferred size */
     font-weight: normal;
     color: black; /* Optional: adjust color */
@@ -8,12 +9,4 @@
 
 ul {
     padding-left: 60px; /* Adjust this value to increase indentation */
-}
-
-p { 
-  color: #000000; 
-}  
-
-h1, h2, h3, h4, h5, h6 {
-color: #000000;
 }
