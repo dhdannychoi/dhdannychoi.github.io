@@ -1,600 +1,1350 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donghyun Danny Choi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-64a25c16e07d349f408cebe4f21e9fe6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f8f6f1;
+    --stone: #6b6560;
+    --accent: #8b4513;
+    --mist: #e8e4dd;
+    --cream: #f0ece4;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-61KZ1TFDEJ"></script>
 
-<script type="text/javascript">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-61KZ1TFDEJ', { 'anonymize_ip': true});
-</script>
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── Navigation ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(248, 246, 241, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(107, 101, 96, 0.08);
+    transition: padding 0.4s ease;
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond';
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
 
 
-<link rel="stylesheet" href="styles.css">
+a {
+  color: inherit; /* Makes the link the same color as its parent element's text */
+  text-decoration: none; /* Removes the underline */
+}
+
+/* To ensure all link states (visited, hover, active, focus) also follow these rules */
+a:visited, a:hover, a:active, a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    animation: fadeUp 1s ease 0.3s both;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .hero-role {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .hero-role span { color: var(--accent); }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    color: var(--stone);
+    line-height: 1.85;
+    max-width: 520px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid var(--ink);
+    transition: all 0.35s ease;
+  }
+
+  .hero-links a:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .hero-image-frame {
+    width: 100%;
+    height: 480px;
+    background: var(--cream);
+    border: 1px solid var(--mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(107, 101, 96, 0.12);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .photo-placeholder {
+    font-family: var(--serif);
+    font-size: 6rem;
+    font-weight: 300;
+    color: var(--mist);
+    user-select: none;
+  }
+
+  /* ── Shared Section Styles ── */
+  section {
+    padding: 7rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 1.5rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .divider {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .divider hr {
+    border: none;
+    height: 1px;
+    background: var(--mist);
+  }
+
+  /* ── Books ── */
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .book-card {
+    padding: 2.5rem;
+    background: var(--cream);
+    border: 1px solid rgba(107, 101, 96, 0.06);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .book-card:hover {
+    border-color: rgba(139, 69, 19, 0.15);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+  }
+
+  .book-status {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .book-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.35;
+  }
+
+  .book-desc {
+    font-size: 0.92rem;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+
+  /* Expandable abstract */
+  .book-abstract-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease;
+  }
+
+  .book-abstract-wrapper.expanded {
+    opacity: 1;
+  }
+
+  .book-abstract {
+    padding-top: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--stone);
+    line-height: 1.85;
+    border-top: 1px solid var(--mist);
+    margin-top: 1.2rem;
+  }
+
+  .book-abstract p + p {
+    margin-top: 1rem;
+  }
+
+  .book-abstract blockquote {
+    margin: 1.2rem 0;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--mist);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  .book-abstract blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .book-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    padding: 0;
+    transition: color 0.3s ease;
+  }
+
+  .book-toggle:hover { color: var(--ink); }
+
+  .book-toggle-icon {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .book-toggle.active .book-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .book-award {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--mist);
+    font-size: 0.82rem;
+    color: var(--stone);
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  /* ── wips ── */
+  .wip-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wip-item {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(107, 101, 96, 0.08);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    transition: padding-left 0.3s ease;
+  }
+
+  .wip-item:hover { padding-left: 1rem; }
+
+  .wip-title-text {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    transition: color 0.3s ease;
+  }
+
+  .wip-item:hover .wip-title-text { color: var(--accent); }
+
+  .wip-journal {
+    font-size: 1.15rem;
+    color: var(--stone);
+    margin-top: 0.3rem;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .wip-year {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .wip-award-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    font-family: var(--sans);
+    font-style: normal;
+  }
+
+  /* wip expandable abstracts */
+  .wip-abstract-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s ease;
+    grid-column: 1 / -1;
+  }
+
+  .wip-abstract-wrapper.expanded {
+    opacity: 1;
+  }
+
+  .wip-abstract {
+    padding: 1.2rem 0 0.4rem;
+    font-size: 0.88rem;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  .wip-abstract p + p {
+    margin-top: 0.8rem;
+  }
+
+  .wip-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-left: 0.6rem;
+    font-size: 0.7rem;
+    color: var(--stone);
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--mist);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .wip-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .wip-toggle.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: rotate(180deg);
+  }
+
+  .wip-header-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+
+  /* ── wips ── */
+  .wip-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wip-item {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(107, 101, 96, 0.08);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    transition: padding-left 0.3s ease;
+  }
+
+  .wip-item:hover { padding-left: 1rem; }
+
+  .wip-title-text {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    transition: color 0.3s ease;
+  }
+
+  .wip-item:hover .wip-title-text { color: var(--accent); }
+
+  .wip-journal {
+    font-size: 1.15rem;
+    color: var(--stone);
+    margin-top: 0.3rem;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .wip-year {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .wip-award-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    font-family: var(--sans);
+    font-style: normal;
+  }
+
+  /* wip expandable abstracts */
+  .wip-abstract-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s ease;
+    grid-column: 1 / -1;
+  }
+
+  .wip-abstract-wrapper.expanded {
+    opacity: 1;
+  }
+
+  .wip-abstract {
+    padding: 1.2rem 0 0.4rem;
+    font-size: 0.88rem;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  .wip-abstract p + p {
+    margin-top: 0.8rem;
+  }
+
+  .wip-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-left: 0.6rem;
+    font-size: 0.7rem;
+    color: var(--stone);
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--mist);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .wip-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .wip-toggle.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: rotate(180deg);
+  }
+
+  .wip-header-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+
+  /* ── Affiliations ── */
+  .affiliations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .affiliation-card {
+    padding: 2rem;
+    border: 1px solid var(--mist);
+    transition: border-color 0.3s ease;
+  }
+
+  .affiliation-card:hover { border-color: var(--accent); }
+
+  .affiliation-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .affiliation-org {
+    font-size: 0.82rem;
+    color: var(--stone);
+    margin-top: 0.5rem;
+  }
+
+  /* ── Contact ── */
+  .contact-section {
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+
+  .contact-section .section-label { margin-bottom: 1.5rem; }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-email {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+    font-style: italic;
+  }
+
+  .contact-email:hover { border-bottom-color: var(--accent); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .contact-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--stone);
+    font-weight: 400;
+    transition: color 0.3s ease;
+  }
+
+  .contact-links a:hover { color: var(--ink); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 2.5rem 3rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--mist);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 0.72rem; }
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 7rem 1.5rem 3rem;
+      min-height: auto;
+    }
+    .hero-image-wrapper { order: -1; }
+    .hero-image-frame { width: 260px; height: 330px; }
+    section { padding: 4rem 1.5rem; }
+    .book-grid { grid-template-columns: 1fr; }
+    .affiliations { grid-template-columns: 1fr; }
+    .wip-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-title { font-size: 2.2rem; }
+  }
+</style>
 </head>
+<body>
 
-<body class="nav-fixed fullcontent quarto-light">
+<nav>
+  <div class="nav-name"></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#wip">Work In Progress</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+  </ul>
+</nav>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Donghyun Danny Choi</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./books.html"> 
-<span class="menu-text">books</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">articles</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./inprogress.html"> 
-<span class="menu-text">work in progress</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
-<span class="menu-text">teaching</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="img/choi_pic_copy.png" class="about-image
-  rounded " style="width: 10em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<p class="subtitle lead"><b>Donghyun Danny Choi</b> <br>Stephen Robert Assistant Professor<br>Department of Political Science<br>Brown University</p>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://dhdannychoi.com/files/choi_cv.pdf" class="about-link" rel="" target="">
-    <i class="bi bi-book"></i>
-     <span class="about-link-text">CV</span>
-  </a>
-  <a href="mailto:dannychoi@brown.edu" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=I0SvZR0AAAAJ" class="about-link" rel="" target="">
-    <i class="bi bi-globe"></i>
-     <span class="about-link-text">Google Scholar</span>
-  </a>
-  <a href="https://x.com/dhdannychoi" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Welcome! I am the Stephen Robert Assistant Professor of Political Science at <a href="https://polisci.brown.edu/">Brown University</a>. My research bridges the study of political institutions and intergroup relations to study the twin challenges of representation and inclusion in diverse societies. In AY 2025–2026, I will be on academic leave at MIT and Georgetown University.</p>
-<p>My work on these two themes have been published in the <em>Proceedings of the National Academy of Sciences</em>, <em>American Political Science Review</em>, <em>American Journal of Political Science</em>, <em>Journal of Politics</em>, <em>Comparative Political Studies</em>, and <em>Political Behavior</em>, among others. I have received several awards for my work, including the best book award from the Experimental Research Section of APSA (2023), the Gregory Luebbert Prize for best article in comparative politics (2022), the Fiona McGillivray Award for best paper in political economy (2020), and the Juan Linz Prize for best dissertation in the comparative study of democracy and autocracy (2020).</p>
-<p>Prior to joining Brown, I was an Assistant Professor at the University of Pittsburgh and a Postdoctoral Fellow at the University of Pennsylvania. I received my PhD and MA in Political Science from UC Berkeley and a BA in economics with highest honors from Korea University.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>External Affiliations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Member, <a href="https://egap.org">Evidence in Governance and Politics (EGAP)</a></p>
-<p>Faculty Affiliate, <a href="https://campuspress.yale.edu/yaleicl/">Yale Identity &amp; Conflict Lab</a></p>
-<p>Research Associate, <a href="https://cpd.berkeley.edu/">UC Berkeley Center on the Politics of Development</a></p></td>
-</tr>
-</tbody>
-</table>
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2 class="section-title">Donghyun Danny Choi</h2>
+    <p class="hero-role">Stephen Robert Assistant Professor of Political Science <br> <span>Brown University</span></p>
+    <p class="hero-bio">
+      I am a scholar of comparative politics at Brown University. My research bridges the study of political institutions and intergroup relations to address the twin challenges of representation and inclusion in diverse societies. In AY 2025&ndash;2026, I am on academic leave at MIT and Georgetown University. <br></br>
+      Prior to Brown, I was faculty at the University of Pittsburgh and a Postdoctoral Fellow at the University of Pennsylvania. I received my PhD in Political Science from UC Berkeley and a BA in economics with highest honors from Korea University.
 
+    </p>
 
-</main></div>
-</div>
- <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Donghyun Danny Choi, 2018. All rights reserved.</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
+    <div class="hero-links">
+      <a href="files/choi_cv.pdf" target="_blank">Curriculum Vitae</a>
+      <a href="https://scholar.google.com/citations?user=I0SvZR0AAAAJ" target="_blank">Google Scholar</a>
     </div>
   </div>
+  <div class="hero-image-wrapper">
+    <div class="hero-image-frame">
+  <img src="img/severed.jpg" alt="Donghyun Danny Choi"
+       style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- Books -->
+<section id="books">
+  <p class="section-label">Research</p>
+  <h2 class="section-title">Books</h2>
+  <div class="book-grid">
+
+    <!-- Book 1: Native Bias -->
+    <div class="book-card">
+      <p class="book-status">Published &mdash; Princeton University Press (2022)<br>Princeton Studies in Political Behavior</p>
+      <h3 class="book-title">Native Bias: Overcoming Discrimination against Immigrants</h3>
+      <p class="book-status">Donghyun Danny Choi, Mathias Poertner, and Nicholas Sambanis</p>
+      <p class="book-desc">
+        An examination of the roots and remedies of discrimination against Muslim immigrants in Europe, demonstrating how shared civic norms and identities can overcome deep-seated bias.
+      </p>
+
+      <div class="book-abstract-wrapper" id="abstract-1">
+        <div class="book-abstract">
+          <p>In the aftermath of the refugee crisis caused by conflicts in the Middle East and an increase in migration to Europe, European nations have witnessed a surge in discrimination targeted at immigrant minorities. To quell these conflicts, some governments have resorted to the adoption of coercive assimilation polices aimed at erasing differences between natives and immigrants. Are these policies the best method for reducing hostilities? Native Bias challenges the premise of such regulations by making the case for a civic integration model, based on shared social ideas defining the concept and practice of citizenship.
+
+          Drawing from original surveys, survey experiments, and novel field experiments, Donghyun Danny Choi, Mathias Poertner, and Nicholas Sambanis show that although prejudice against immigrants is often driven by differences in traits such as appearance and religious practice, the suppression of such differences does not constitute the only path to integration. Instead, the authors demonstrate that similarities in ideas and value systems can serve as the foundation for a common identity, based on a shared concept of citizenship, overcoming the perceived social distance between native and immigrants.
+
+          Addressing one of the most pressing challenges of our time, Native Bias offers an original framework for understanding anti-immigrant discrimination and the processes through which it can be overcome.
+
+</p>
+
+          <blockquote>
+            &ldquo;This is a terrific book&mdash;one of the best I&rsquo;ve read in a long time. Polished, theoretically sophisticated, and logically structured, it brings to bear new evidence and approaches on a critical contemporary topic.&rdquo;
+            <cite>&mdash; Daniel N. Posner, UCLA</cite>
+          </blockquote>
+
+          <blockquote>
+            &ldquo;This excellent book addresses one of the most important issues of our time: how to overcome the discrimination of immigrants and, ultimately, how to secure their successful integration into new societies.&rdquo;
+            <cite>&mdash; Peter Thisted Dinesen, University of Copenhagen</cite>
+          </blockquote>
+
+          <blockquote>
+            &ldquo;Native Bias offers a compelling and hopeful analysis of the challenges facing countries grappling with increasing cultural diversity. Indispensable reading for anyone interested in immigrant integration and multicultural politics!&rdquo;
+            <cite>&mdash; Rafaela M. Dancygier, Princeton University</cite> <br>
+          </blockquote>
+        </div>
+      </div>
+
+      <button class="book-toggle" id="toggle-1">
+        <span>Read more</span>
+        <span class="book-toggle-icon">&darr;</span>
+      </button>
+
+      <p class="book-award">
+        Best Book Award, Experimental Research Section, American Political Science Association 2023<br>
+      </p>
+    </div>
+
+    <!-- Book 2: Severed Connections -->
+    <div class="book-card">
+      <p class="book-status">Under Contract &mdash; Cambridge University Press<br>Cambridge Studies in Comparative Politics</p>
+      <h3 class="book-title">Severed Connections: How Intraparty Politics Erodes Representation in Democratic Africa</h3>
+      <p class="book-status">Donghyun Danny Choi</p>
+      <p class="book-desc">
+      A study of how political parties systematically break the link between voters and their representatives, showing how leaders trade off local responsiveness for internal control through the high-stakes logic of the nomination contest.
+      </p>
+
+      <div class="book-abstract-wrapper" id="abstract-2">
+        <div class="book-abstract">
+        Political parties are often seen as guarantors of democratic accountability. Yet their internal decisions, especially over who may run for office, can have large, long-lasting, and often pernicious consequences for the quality of representation. <i>Severed Connections</i> reframes our understanding of democratic dysfunction by tracing how politics inside parties shape the degree to which elected officials are attentive to the needs of their constituents, well before voters cast a ballot. Through a multi-method study of Kenya, alongside shadow cases from elsewhere in the world, the book uncovers how party leaders use control over candidate selection to balance competing objectives: winning elections and consolidating power within the party. It shows how leaders resolve this trade-off by strategically nominating voter-oriented candidates in competitive districts and loyalists in party strongholds. These choices structure the incentives that legislators carry into office, producing spatially uneven patterns of representation. <i>Severed Connections</i> challenges prevailing explanations that attribute poor representation to weak institutions or uninformed voters, offers new evidence on the central role of candidate selection in shaping democratic outcomes, and rethinks how political parties function in new democracies.</p> <br>
+        </div>
+      </div>
+
+      <button class="book-toggle" id="toggle-2">
+        <span>Read more</span>
+        <span class="book-toggle-icon">&darr;</span>
+      </button>
+            <p class="book-award">
+        Juan Linz Prize for Best Dissertation in the Study of Democracy, American Political Science Association 2020<br>
+            </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- wips -->
+<section id="articles">
+  <h2 class="section-title">Journal Articles</h2>
+  <div class="wip-list">
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CS_JoD.pdf">How Oppositions Turn Authoritarian</a></div>
+          <button class="wip-toggle" id="wip-toggle-1">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Fiona Shen-Bayh</div>
+        <div class="wip-journal">Journal of Democracy, 36(4), 75&ndash;91. </div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-1">
+          <div class="wip-abstract">
+            <p>Opposition victories after periods of democratic erosion are commonly portrayed as turning points that can help restore democracy. This essay argues that this optimism is often misplaced. An analysis of more than 40 elections in Africa since 1990 in which an opposition candidate defeated an autocratizing incumbent reveals that democracy stagnated or declined in half these cases. The authors attribute this pattern to two mutually reinforcing mechanisms inherited from the previous era of democratic erosion. First, new leaders inherit a landscape of weakened institutions — pliant legislatures, politicized courts, and captured state agencies — which are far easier to exploit for their own political consolidation than to rebuild. Second, years of repression teach opposition elites which legal and coercive strategies are most effective for ensuring political survival. This “opposition learning” encourages them to use, rather than dismantle, these authoritarian instruments once they are in power. Through detailed case studies of recent opposition victories in Malawi and Zambia, the authors illustrate how these dynamics operate in practice. Despite celebrated electoral turnovers, these new governments began to repurpose the tools of their predecessors, engaging in judicial manipulation, selective prosecutions, and the cooptation of state power. This combination of institutional inheritance and learned repression often transforms a celebrated alternation of power into a “smarter autocracy,” illustrating why electoral turnover by itself is seldom sufficient to guarantee democratic recovery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2025</div>
+    </div>
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/BBCGGRRTW_BraverAngels.pdf">Couples Therapy for a Divided America: Assessing the Effects of Reciprocal Group Reflection on Partisan Polarization</a></div>
+          <button class="wip-toggle" id="wip-toggle-2">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Hannah Baron &middot Robert A. Blair &middot Laura Gamboa &middot Jessica Gottlieb &middot Amanda L. Robinson &middot  Steven C. Rosenzweig &middot Meghan M. Turnbull &middot Emily A. West</div>
+        <div class="wip-journal">Political Behavior, 47, 1363&ndash;1388. </div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-2">
+          <div class="wip-abstract">
+            <p>Overcoming America’s deep partisan polarization poses a unique challenge: Ameri-cans must be able to sharply disagree on who should govern while agreeing onmore fundamental democratic principles. We study one model of depolarization—reciprocal group reflection—inspired by marital counseling and implemented bya non-partisan non-governmental organization, Braver Angels. We randomly as-signed undergraduates at four universities either to participate in a Braver Angelsworkshop or simply to complete three rounds of surveys. The workshops substan-tially reduced polarization according to explicit and implicit measures. They alsoincreased participants’ willingness to donate to programs aimed at depolarizingpolitical conversations. These effects are consistent across partisan groups, thoughsome dissipate over time. Using qualitative data, and building on contact and delib-erative theories, we argue that depolarization is especially effective when it includesboth informational and emotional components, such that citizens who are moved toempathize with outgroup members become more likely to internalize new informa-tion about them.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2025</div>
+    </div>
+
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/ACDPR_Abortion_Zambia.pdf">Policymakers’ Abortion Preferences: Understanding the Intersection of Gender and Wealth</a></div>
+          <button class="wip-toggle" id="wip-toggle-3">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola &middot Justine M. Davis &middot Melanie L. Phillips &middot Lise Rakner</div>
+        <div class="wip-journal">Comparative Political Studies 58(1), 78&ndash;121. </div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-3">
+          <div class="wip-abstract">
+            <p>When are politicians willing to liberalize abortion laws? While restricted access to legal abortion affects millions of women around the world, there is relatively little understanding of the factors shaping the views of politicians who craft or uphold such restrictive laws. This study examines the impact of a public health framing commonly employed by activists to persuade politicians to reform abortion laws. We provide evidence that politicians’ preferences toward abortion reforms are shaped by the intersection of gender and wealth. Drawing on a survey experiment conducted among more than 600 politicians in Zambia, we show that only women politicians from less wealthy backgrounds are more likely to support policy liberalization after being exposed to a public health framing. These findings underscore how economic inequalities can affect the substantive representation of women’s interests and provide a baseline for further research on the use of framing strategies in other developing country contexts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2025</div>
+    </div>
+
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CPS_Gender.pdf">The Hijab Penalty: Feminist Backlash to Muslim Immigrants</a></div>
+          <button class="wip-toggle" id="wip-toggle-4">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Mathias Poertner &middot Nicholas Sambanis</div>
+        <div class="wip-journal">American Journal of Political Science, 67(2), 291&ndash;306.</div>
+        <div class="wip-award-tag">Gregory Luebbert Prize for Best Article in Comparative Politics, American Political Science Association, 2022</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-4">
+          <div class="wip-abstract">
+            <p>Why do native Europeans discriminate against Muslim immigrants? Can shared ideas between natives and immigrants reduce discrimination? We hypothesize that natives’ bias against Muslim immigrants is shaped by the belief that Muslims hold conservative attitudes about women’s rights and this ideational basis for discrimination is more pronounced among native women. We test this hypothesis in a large-scale field experiment conducted in 25 cities across Germany, during which 3,797 unknowing bystanders were exposed to brief social encounters with confederates who revealed their ideas regarding gender roles. We find significant discrimination against Muslim women, but this discrimination is eliminated when Muslim women signal that they hold progressive gender attitudes. Through an implicit association test and a followup survey among German adults, we further confirm the centrality of ideational stereotypes in structuring opposition to Muslims. Our findings have important implications for reducing conflict between native–immigrant communities in an era of increased cross-border migration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2023</div>
+    </div>
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CPS_Temperature.pdf">Temperature and Outgroup Discrimination</a></div>
+          <button class="wip-toggle" id="wip-toggle-5">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Mathias Poertner &middot Nicholas Sambanis</div>
+        <div class="wip-journal">Political Science Research and Methods, 11, 198&ndash;206.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-5">
+          <div class="wip-abstract">
+            <p>High temperatures have been linked to aggression and different forms of conflict in humans. We consider whether exposure to heat waves increases discriminatory behavior toward outgroups. Using data from two large-scale field experiments in Germany, we find a direct causal effect of exposure to heat shocks on discrimination in helping behavior. As temperature rises, German natives faced with a choice to provide help to strangers in every-day interactions help Muslim immigrants less than they do other German natives, while help rates toward natives are unaffected by temperature. This finding suggests that there may be a physiological basis for discriminatory behavior toward outgroups.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/ACG_PolEndorse_rev1.pdf">Increasing Intergroup Trust: Endorsements and Voting in Divided Societies</a></div>
+          <button class="wip-toggle" id="wip-toggle-6">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola &middot Matthew K. Gichohi</div>
+        <div class="wip-journal">Journal of Politics, 84(4), 2107&ndash;2122.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-6">
+          <div class="wip-abstract">
+            <p>Can endorsements persuade voters to transcend politicized identity cleavages to support candidates from other groups?
+              We argue that the persuasive power of cleavage-bridging endorsements depends on the ability of politicians to elicit ingroup trust on behalf of out-group candidates. The activation of in-group trust increases the likelihood of voting for out-group candidates by changing both instrumental and affective assessments about the nature of the voter-candidate relationship. To assess these claims, we provide evidence from Kenya, where simulated radio news segments experimentally manipulated the ethnic relationship among voters, endorsers, and candidates. We find that voters who hear endorsements from in-group politicians are significantly more likely to vote for out-group candidates and view them as trustworthy. We further find that the trust premium transferred from in-group endorsers to out-group candidates leads voters to regard them as nondiscriminatory representatives who care about their well-being.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/KBCKZ_InsiderOutsider.pdf">Navigating &lsquo;Insider&rsquo; and &lsquo;Outsider&rsquo; Status as Researchers Conducting Field Experiments</a></div>
+          <button class="wip-toggle" id="wip-toggle-7">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Eunji Kim &middot Sumitra Badrinathan &middot Sabrina Karim &middot Yang-Yang Zhou</div>
+        <div class="wip-journal">PS: Political Science &amp; Politics, 55(4), 754&ndash;758.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-7">
+          <div class="wip-abstract">
+            <p>How does a researcher's identity shape the design, implementation, and interpretation of field experiments? This wip draws on the collective experiences of five researchers who have conducted field experiments across diverse settings to reflect on the practical and ethical implications of insider and outsider positionality. The authors provide recommendations for navigating these dynamics while maintaining research integrity.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CHS_EthnicBias.pdf">Ethnic Bias in Judicial Decision-making: Evidence from Criminal Appeals in Kenya</a></div>
+          <button class="wip-toggle" id="wip-toggle-8">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with J. Andrew Harris &middot Fiona Shen-Bayh</div>
+        <div class="wip-journal">American Political Science Review, 116(3), 1067&ndash;1080.</div>
+        <div class="wip-award-tag">Fiona MCGillivray Award for Best Paper in Political Economy, Political Economy Section, American Political Science Association, 2022</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-8">
+          <div class="wip-abstract">
+            <p>Understanding sources of judicial bias is essential for establishing due process. To date, theories of judicial decision making are rooted in ranked societies with majority–minority group cleavages, leaving unanswered which groups are more prone to express bias and whether it is motivated by in-group favoritism or out-group hostility. We examine judicial bias in Kenya, a diverse society that features a more complex ethnic landscape. While research in comparative and African politics emphasizes instrumental motivations underpinning ethnic identity, we examine the psychological, implicit biases driving judicial outcomes. Using data from Kenyan criminal appeals and the conditional random assignment of judges to cases, we show that judges are 3 to 5 percentage points more likely to grant coethnic appeals than non-coethnic appeals. To understand mechanisms, we use word embeddings to analyze the sentiment of written judgments. Judges use more trust-related terms writing for coethnics, suggesting that in-group favoritism motivates coethnic bias in this context.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/ACDPR_Party.pdf">Paying to Party: Candidate Resources and Party Switching in New Democracies</a></div>
+          <button class="wip-toggle" id="wip-toggle-9">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola &middot Justine M. Davis &middot Melanie L. Phillips &middot Lise Rakner</div>
+        <div class="wip-journal">Party Politics, 28(3), 507&ndash;520.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-9">
+          <div class="wip-abstract">
+            <p>Party switching among legislative candidates has important implications for accountability and representation in democratizing countries. We argue that party switching is influenced by campaign costs tied to the clientelistic politics that persist in many such countries. Candidates who are expected to personally pay for their campaigns, including handouts for voters, will seek to affiliate with parties that can lower those costs through personal inducements and organizational support. Campaign costs also drive candidate selection among party leaders, as they seek to recruit candidates who can finance their own campaigns. We corroborate these expectations with an original survey and embedded choice experiment conducted among parliamentary candidates in Zambia. The conjoint analysis shows that candidates prefer larger parties that offer particularistic benefits. The survey further reveals that parties select for business owners as candidates—the very candidates most likely to defect from one party to another.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CPS_Language.pdf">Linguistic Assimilation Does Not Reduce Discrimination Against Immigrants</a></div>
+          <button class="wip-toggle" id="wip-toggle-10">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Mathias Poertner &middot Nicholas Sambanis</div>
+        <div class="wip-journal">Journal of Experimental Political Science, 8(3), 235&ndash;246.</div>
+        <div class="wip-award-tag">Rebecca Morton Award for Best Paper in JEPS, Experimental Research Section, American Political Science Association, 2020.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-10">
+          <div class="wip-abstract">
+            <p>What explains discrimination against immigrants and what can reduce it? Using a large-scale field experiment conducted across 28 German cities, this study measures the behavioral foundations of anti-immigrant discrimination and tests whether a shared civic identity can counteract it. The results show that parochial norms drive native residents to discriminate against immigrants, but that priming a common civic identity significantly reduces discriminatory behavior.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2022</div>
+    </div>
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/CPS_Norms.pdf">Parochialism, Social Norms, and Discrimination against Immigrants</a></div>
+          <button class="wip-toggle" id="wip-toggle-11">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Mathias Poertner &middot Nicholas Sambanis</div>
+        <div class="wip-journal">Proceedings of the National Academy of Sciences, 116(33), 16274&ndash;16279.</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-11">
+          <div class="wip-abstract">
+            <p>Ingroup bias and outgroup prejudice are pervasive features of human behavior, motivating various forms of discrimination and conflict. In an era of increased cross-border migration, these tendencies exacerbate intergroup conflict between native populations and immigrant groups, raising the question of how conflict can be overcome. We address this question through a large-scale field intervention conducted in 28 cities across three German states, designed to measure assistance provided to immigrants during everyday social interactions. This randomized trial found that cultural integration signaled through shared social norms mitigates—but does not eliminate—bias against immigrants driven by perceptions of religious differences. Our results suggest that eliminating or suppressing ascriptive (e.g., ethnic) differences is not a necessary path to conflict reduction in multicultural societies; rather, achieving a shared understanding of civic behavior can form the basis of cooperation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2019</div>
+    </div>
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text"><a href="files/KCM_Fuzzy.pdf">Fuzzy Sets on Shaky Ground: Parameter Sensitivity and Confirmation Bias in fsQCA</a></div>
+          <button class="wip-toggle" id="wip-toggle-12">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Chris Krogslund &middot Mathias Poertner</div>
+        <div class="wip-journal">Political Analysis, 23(1), 21&ndash;41</div>
+        <div class="wip-abstract-wrapper" id="wip-abstract-12">
+          <div class="wip-abstract">
+            <p>Scholars have increasingly turned to fuzzy set Qualitative Comparative Analysis (fsQCA) to conduct smalland medium-N studies, arguing that it combines the most desired elements of variable-oriented and caseoriented research. This wip demonstrates, however, that fsQCA is an extraordinarily sensitive method whose results are worryingly susceptible to minor parametric and model specification changes. We make
+two specific claims. First, the causal conditions identified by fsQCA as being sufficient for an outcome to occur are highly contingent upon the values of several key parameters selected by the user. Second, fsQCA results are subject to marked confirmation bias. Given its tendency toward finding complex connections between variables, the method is highly likely to identify as sufficient for an outcome causal combinations containing even randomly generated variables. To support these arguments, we replicate three wips utilizing fsQCA and conduct sensitivity analyses and Monte Carlo simulations to assess the impact of small changes in parameter values and the method’s built-in confirmation bias on the overall conclusions
+about sufficient conditions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year">2015</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- Work in Progress -->
+<section id="wip">
+  <h2 class="section-title">Work in Progress</h2>
+  <div class="wip-list">
+
+    <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Legislating with Women: How Gender Composition Affects Issue Advocacy</div>
+          <button class="wip-toggle" id="wp-toggle-1">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola (UC Merced) &middot Junwoo Suh (UC Berkeley) &middot Soosun You (Penn)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-1">
+          <div class="wip-abstract">
+            <p>Does greater descriptive representation of women lead to more substantive attention to women’s concerns in legislatures? Existing studies showing that women legislators prioritize gendered issues have been limited by underdeveloped theoretical accounts of how such advocacy emerges and by causal evidence that hinges on legal mandates that simultaneously alter electoral incentives and institutional enforcement, making it difficult to isolate the independent effect of women’s presence from these confounding factors. We propose a theoretical framework that emphasizes interpersonal peer dynamics—the daily interactions among legislators that ultimately shape policy agendas. We argue that exposure to women peers in legislative committees increases attention to women’s issues through social learning, norm diffusion, and role model activation. We test this argument using quasi-random variation in the gender composition of standing committees in South Korea’s National Assembly, a legislature without binding gender quotas. Drawing on 1.8 million speeches (2000–2024) and 5,000 campaign manifestos (2008–2024), we measure women’s issue advocacy using dictionary and large language model (LLM) classifiers. We find that legislators, regardless of gender, become more vocal on women-related concerns after serving alongside more women in legislative committees. These effects extend to plenary sessions and campaign platforms. Our findings show that descriptive representation can foster substantive representation through everyday peer exposure even in the absence of institutional mandates.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Arrested Debate: Opposition Repression and Parliamentary Speech</a></div>
+          <button class="wip-toggle" id="wp-toggle-2">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Fiona Shen-Bayh (Maryland)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-2">
+          <div class="wip-abstract">
+            <p>How does the repression of opposition leaders outside of parliament affect legislative behavior within it? Prior research emphasizes the effects of repression on mobilization, protest, and elections, but few works examine its consequences on legislative debate. We argue that in democratic contexts where dissent is normally allowed and encouraged, opposition repression has a chilling effect on opposition speech-making because it generates uncertainty over both the bounds of permissible speech and the consequences of speaking beyond these bounds. We explore these dynamics in Zambia during the presidency of Edgar Lungu, when the opposition leader Hakainde Hichilema was suddenly and arbitrarily arrested on charges of sedition and treason. Using data on more than 350,000 parliamentary speeches from the Zambian National Assembly between 2011-2021, we leverage a difference-in-differences design to compare parliamentary speech patterns of opposition and incumbent party legislators before and after the arrest of the opposition leader. We find a marked deterioration in the quantity and quality of debate following the arrest, including persistent reductions in the frequency and length of speeches made by opposition legislators as well as their discussion of substantive policy issues. We further show that opposition legislators were more likely to be interrupted during their speaking turn and denied requests to speak by the House Speaker, which we interpret as increased incivility by incumbent party members towards opposition members. Our findings demonstrate the pernicious consequences of repression on freedom of speech and democratic representation in new democracies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+        <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Do Voters Respond to Cross-Cleavage Campaigning in Polarized Societies?</a></div>
+          <button class="wip-toggle" id="wp-toggle-3">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola (UC Merced) &middot Matthew Gichohi (Chr. Michelsen Institute) &middot Ken Ochieng Opalo (Georgetown)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-3">
+          <div class="wip-abstract">
+            <p>Are cross-cleavage campaigns effective in polarized societies? While social demographics and electoral rules in many countries compel candidates to pursue votes outside their own identity groups, the efficacy of such campaigns remains unclear in polarized contexts. We argue that cross-cleavage electoral outreach through in-person campaign rallies can inadvertently trigger inter-group differentiation and competition, resulting in the heightened salience of identity and depressed voter support for outgroup candidates. We assess these claims by exploiting the timing of an unscheduled campaign rally held by an outgroup presidential candidate in another ethnic group’s stronghold during Kenya’s 2017 election. Comparing survey respondents before and after the rally, we find that the outgroup candidate’s post-rally favorability significantly decreased among ingroup voters, while the proportion of voters identifying in ethnic terms simultaneously increased. These findings contribute to a more nuanced understanding of the challenges faced in democratic elections in socially divided societies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+      <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Partisanship, Gender, and the Structure of Politician Networks in Zambia</a></div>
+          <button class="wip-toggle" id="wp-toggle-4">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola (UC Merced) &middot Justine M. Davis (Michigan) &middot Melanie Phillips &middot Lise Rakner (Bergen)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-4">
+          <div class="wip-abstract">
+            <p>Although women have entered government in African countries at an unprecedented rate over the past three decades, it remains unknown to what extent they have acquired the influence necessary to shape policymaking. Are women able to exercise personal influence to the same degree or in the same ways as their male counterparts? We argue that women tend to be less influential than men due to the structure of their personal networks with other politicians. Prior scholarship on African politics has demonstrated that political outcomes depend on the personal ties that connect politicians to one other. Based on a novel network survey among Zambian candidates, we demonstrate that women tend to be peripherally situated within networks. We find that women are systematically less likely to be connected to others in social or work networks among politicians. We also demonstrate that, while having fewer connections than men, women have connections with more important people in both social and work networks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+
+      <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Lasting Effects of Transient Exposure to the Greek Refugee Crisis: Affective versus Cognitive Responses to Tragedy and Realistic Threat</a></div>
+          <button class="wip-toggle" id="wp-toggle-5">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Nicholas Sambanis (Yale)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-5">
+          <div class="wip-abstract">
+            <p>We investigate whether transient exposure to refugees can durably affect native attitudes and behavior. Our case is Greece’s refugee crisis, which saw a sudden influx of more than 1 million refugees in 2015 following the escalation of conflicts in the Middle East. We capitalize on the fact that the Aegean Islands—the epicenter of the refugee crisis—are home to the campus for the University of the Aegean (UA), which draws students from across Greece. We conduct a targeted survey (N=3,900) of student cohorts that attended university prior to or during the refugee crisis. Employing an instrumented difference-in-difference design and a matching strategy informed by distinctive features of the Greek university admissions system, we compare the current-day attitudes, preferences, and behavioral dispositions of students who attended the University of the Aegean and thereby had significant exposure to refugees during the crisis, to otherwise similar students who attended university elsewhere and thus had limited exposure. Our findings paint a more complex picture than existing work; students who attended UA during the crisis have more favorable attitudinal and behavioral dispositions towards refugees today, but also simultaneously support more restrictive immigration policy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+      <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Competing Frames and Policymakers’ Preferences for LGBT+ Protection: Experimental Evidence from Zambia</a></div>
+          <button class="wip-toggle" id="wp-toggle-6">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Leonardo R. Arriola (UC Merced) &middot Justine M. Davis (Michigan) &middot Melanie Phillips &middot Lise Rakner (Bergen)</div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-6">
+          <div class="wip-abstract">
+            <p>When are politicians willing to extend formal social protections to LGBT+ minorities? While the protection of civil liberties and rights for LGBT+ communities continues to feature prominently in political debates around the world, there is limited understanding of the factors that shape the views of politicians who enact the laws that govern these protections. This study examines the effectiveness of two competing frames—that cast the protection of LGBT+ individuals either as a public health crisis or a human rights crisis—that advocacy organizations frequently employ to persuade policymakers to liberalize their position on LGBT+ minority protection. Drawing on a survey and experiment conducted among more than 600 political candidates who contested for national and local office in Zambia, we show that politicians are significantly more likely to respond to the human rights frame than the public health frame. These effects are primarily driven by male candidates and exist only when the crisis is explicitly framed in terms of its impact on the general public rather than the LGBT+ communities themselves. An analysis of open-ended responses provides suggestive evidence regarding the mechanism underlying these effects; the human rights frame appears to have reduced politicians’ tendency to dehumanize members of the LGBT+ community.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+      <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Captured or Insulated from Influence? The Politics of Foreign Aid Allocation in Africa </a></div>
+          <button class="wip-toggle" id="wp-toggle-7">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Yucong Li (Brown) </div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-7">
+          <div class="wip-abstract">
+            <p>Whether foreign aid is captured by domestic political favoritism may depend critically on the donor's organizational form. This paper investigates this proposition by comparing aid projects from bilateral (China, United States) and multilateral (World Bank, African Development Bank) donors across Sub-Saharan Africa, asking if partisan alignment between a legislator and the national executive causally shifts project placement. To isolate the effect of political favoritism, we implement a close-election regression discontinuity design on a new panel linking geocoded aid projects to constituency-level election results. The results reveal a sharp asymmetry between the two donor types. We find that constituencies that narrowly elect a legislator from the ruling party see a 7--10 percentage point increase in the probability of receiving a bilateral donor aid project. This effect operates on the extensive margin-whether a constituency receives its first project-ather than on the number of projects. In contrast, we find no evidence that partisan alignment affects the allocation of multilateral donor rojects. Our findings suggest that the institutional design of donors is a key mediating factor in the politics of aid: while the discretion afforded by bilateral aid channels allows for domestic political capture, the procedures of multilateral institutions appear to insulate aid from this form of constituency-level favoritism.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+      <div class="wip-item">
+      <div>
+        <div class="wip-header-row">
+          <div class="wip-title-text">Weaponizing the Backlash Against Renewable Energy</a></div>
+          <button class="wip-toggle" id="wp-toggle-8">&darr;</button>
+        </div>
+        <div class="wip-award-tag">with Jeff Colgan (Brown) </div>
+        <div class="wip-abstract-wrapper" id="wp-abstract-8">
+          <div class="wip-abstract">
+            <p>Why do pro-climate policies in democracies often fail to have the impacts environmentalists expect? In the context of the United States, we argue that the Biden administration’s 2021 clean energy policy surge activated a strategic weaponization of local energy politics. Local opposition to wind and solar energy occurs in both Republican- and Democratic-leaning areas, but the pattern has changed since 2021. We theorize that political opponents mobilized against renewable energy projects specifically in electorally competitive states, aiming to simultaneously undermine the Democratic coalition for clean energy and instrumentalize this opposition for electoral gain. We test this hypothesis by analyzing the county-level adoption of restrictive renewable energy ordinances and project rejections, employing a difference-in-differences design and a novel dataset of over 3,000 U.S. counties from 2010 to 2023. We find that while resistance also occurs in Republican and Democratic strongholds, the post-2021 growth in opposition was disproportionately concentrated in counties within electorally competitive states. Our findings are consistent with the proposition that local energy politics were weaponized in the contest for national political power.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wip-year"></div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<!-- Teaching -->
+<section id="teaching">
+  <p class="section-label">Teaching</p>
+  <h2 class="section-title">Courses Offered</h2>
+  * Syllabi available upon request
+  <div class="affiliations">
+    <div class="affiliation-card">
+      <p class="affiliation-name">Quantitative Research Methods IV: Replication</p>
+      <p class="affiliation-org">Graduate, Brown University</p>
+    </div>
+    <div class="affiliation-card">
+      <p class="affiliation-name">Quantitative Research Methods II</p>
+      <p class="affiliation-org">Graduate, Brown University</p>
+    </div>
+    <div class="affiliation-card">
+      <p class="affiliation-name">Contemporary African Politics (Lecture)</p>
+      <p class="affiliation-org">Undergraduate, Brown University</p>
+    </div>
+      <div class="affiliation-card">
+      <p class="affiliation-name">Introduction to Comparative Politics (Lecture)</p>
+      <p class="affiliation-org">Undergraduate, Brown University</p>
+    </div>
+      <div class="affiliation-card">
+      <p class="affiliation-name">Identity Politics in Global Perspective (Seminar)</p>
+      <p class="affiliation-org">Undergraduate, Brown University</p>
+    </div>
+      <div class="affiliation-card">
+      <p class="affiliation-name">Computational Social Science (Lecture)</p>
+      <p class="affiliation-org">Undergraduate, University of Pittsburgh</p>
+    </div>
+      <div class="affiliation-card">
+      <p class="affiliation-name">Prospectus Seminar I & II</p>
+      <p class="affiliation-org">Graduate, University of Pittsburgh</p>
+    </div><br>
+
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <a href="" class="contact-email">dannychoi [at] brown.edu</a>
+  <div class="contact-links">
+    <a href="https://dhdannychoi.com/files/choi_cv.pdf" target="_blank">CV</a>
+    <a href="https://scholar.google.com/citations?user=I0SvZR0AAAAJ" target="_blank">Google Scholar</a>
+    <a href="https://x.com/dhdannychoi" target="_blank">Twitter / X</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Donghyun Danny Choi. Department of Political Science, Brown University.
 </footer>
 
+<script>
+  // Book abstract toggle
+  function setupToggle(toggleId, wrapperId) {
+    var btn = document.getElementById(toggleId);
+    var wrapper = document.getElementById(wrapperId);
+    if (!btn || !wrapper) return;
 
+    var abstractDiv = wrapper.querySelector('.book-abstract');
+    var label = btn.querySelector('span');
+    var isOpen = false;
 
+    btn.addEventListener('click', function() {
+      if (!isOpen) {
+        // Measure the full height needed
+        var fullHeight = abstractDiv.scrollHeight;
+        wrapper.style.maxHeight = fullHeight + 'px';
+        wrapper.style.opacity = '1';
+        wrapper.classList.add('expanded');
+        btn.classList.add('active');
+        label.textContent = 'Read less';
+        isOpen = true;
+      } else {
+        wrapper.style.maxHeight = '0px';
+        wrapper.style.opacity = '0';
+        wrapper.classList.remove('expanded');
+        btn.classList.remove('active');
+        label.textContent = 'Read more';
+        isOpen = false;
+      }
+    });
+  }
 
-</body></html>
+  setupToggle('toggle-1', 'abstract-1');
+  setupToggle('toggle-2', 'abstract-2');
+
+  // wip abstract toggle (reuses same pattern with wip-specific selectors)
+  function setupwipToggle(toggleId, wrapperId) {
+    var btn = document.getElementById(toggleId);
+    var wrapper = document.getElementById(wrapperId);
+    if (!btn || !wrapper) return;
+
+    var abstractDiv = wrapper.querySelector('.wip-abstract');
+    var isOpen = false;
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (!isOpen) {
+        var fullHeight = abstractDiv.scrollHeight;
+        wrapper.style.maxHeight = fullHeight + 'px';
+        wrapper.style.opacity = '1';
+        wrapper.classList.add('expanded');
+        btn.classList.add('active');
+        isOpen = true;
+      } else {
+        wrapper.style.maxHeight = '0px';
+        wrapper.style.opacity = '0';
+        wrapper.classList.remove('expanded');
+        btn.classList.remove('active');
+        isOpen = false;
+      }
+    });
+  }
+
+  for (var i = 1; i <= 12; i++) {
+    setupwipToggle('wip-toggle-' + i, 'wip-abstract-' + i);
+  }
+
+  // Work in Progress toggle (uses wp- prefix to avoid duplicate IDs)
+  for (var j = 1; j <= 12; j++) {
+    setupwipToggle('wp-toggle-' + j, 'wp-abstract-' + j);
+  }
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '1rem 3rem';
+    } else {
+      nav.style.padding = '1.5rem 3rem';
+    }
+  });
+</script>
+
+</body>
+</html>
