@@ -249,6 +249,23 @@ a:visited, a:hover, a:active, a:focus {
     gap: 3rem;
   }
 
+.book-card-inner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.book-cover {
+  width: 150px;
+  flex-shrink: 0;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  border: 1px solid var(--mist);
+  margin-top: 0.2rem;
+}
+
+.book-text { flex: 1; }
   .book-card {
     padding: 2.5rem;
     background: var(--cream);
@@ -780,14 +797,18 @@ gtag('config', 'G-61KZ1TFDEJ', { 'anonymize_ip': true});
   <div class="book-grid">
 
     <!-- Book 1: Native Bias -->
-    <div class="book-card">
-      <p class="book-status">Published &mdash; Princeton University Press (2022)<br>Princeton Studies in Political Behavior</p>
+<div class="book-card">
+  <p class="book-status">Published &mdash; Princeton University Press (2022)<br>Princeton Studies in Political Behavior</p>
+  <div class="book-card-inner">
+    <img src="img/nativebias.jpeg" alt="Native Bias book cover" class="book-cover">
+    <div class="book-text">
       <h3 class="book-title">Native Bias: Overcoming Discrimination against Immigrants</h3>
       <p class="book-status">Donghyun Danny Choi, Mathias Poertner, and Nicholas Sambanis</p>
       <p class="book-desc">
         An examination of the roots and remedies of discrimination against Muslim immigrants in Europe, demonstrating how shared civic norms and identities can overcome deep-seated bias.
       </p>
-
+    </div>
+  </div>
       <div class="book-abstract-wrapper" id="abstract-1">
         <div class="book-abstract">
           <p>In the aftermath of the refugee crisis caused by conflicts in the Middle East and an increase in migration to Europe, European nations have witnessed a surge in discrimination targeted at immigrant minorities. To quell these conflicts, some governments have resorted to the adoption of coercive assimilation polices aimed at erasing differences between natives and immigrants. Are these policies the best method for reducing hostilities? Native Bias challenges the premise of such regulations by making the case for a civic integration model, based on shared social ideas defining the concept and practice of citizenship.
@@ -832,15 +853,24 @@ gtag('config', 'G-61KZ1TFDEJ', { 'anonymize_ip': true});
     <!-- Book 2: Severed Connections -->
     <div class="book-card">
       <p class="book-status">Forthcoming &mdash; Cambridge University Press<br>Cambridge Studies in Comparative Politics</p>
+   <div class="book-card-inner">
+    <img src="img/severedconnections.jpg" alt="Severed Connections book cover" class="book-cover">
+    <div class="book-text">
       <h3 class="book-title">Severed Connections: How Intraparty Politics Erodes Representation in Democratic Africa</h3>
       <p class="book-status">Donghyun Danny Choi</p>
       <p class="book-desc">
-      A study of how political parties systematically break the link between voters and their representatives, showing how leaders trade off local responsiveness for internal control through the high-stakes logic of the nomination contest.
+      A study of how political parties sever the link between voters and their representatives, showing how leaders trade off representation for internal control through the high-stakes logic of the nomination contest.
       </p>
-
+    </div>
+  </div>
       <div class="book-abstract-wrapper" id="abstract-2">
         <div class="book-abstract">
         Political parties are often seen as guarantors of democratic accountability. Yet their internal decisions -- especially over who may run for office -- can have large, lasting, and often pernicious consequences for the quality of representation. <i>Severed Connections</i> reframes our understanding of democratic dysfunction by tracing how politics inside parties shapes whether elected officials are actually attentive to their constituents, well before voters cast a ballot. Drawing on Kenya as a central case, with comparisons across democratic Africa and beyond, the book argues that party leaders use control over candidate selection to balance two competing objectives: winning elections and consolidating power within the party. They resolve this tension strategically, nominating voter-oriented candidates in competitive districts and loyal insiders in party strongholds. These choices structure the incentives that legislators carry into office, leaving citizens in party strongholds systematically underserved, not because institutions are weak or voters are uninformed, but because the party decided their legislators' priorities long before election day. In doing so, <i>Severed Connections</i> places the internal life of political parties---and the high-stakes battle over candidate selection---at the center of how democratic representation succeeds or fails.</p> <br>
+
+            <blockquote>
+            &ldquo;As political scientists, we often teach Schattschneider’s famous adage that `democracy is unthinkable’ without political parties. In <i>Severed Connections</i>, Donghyun Danny Choi pushes us to turn around and question how well democracy can be realized <i>with</i> them. Through a clear and persuasive argument drawing on impressive fieldwork from Kenya and beyond, Choi carefully demonstrates how, where, and why intra-party politics disrupts democratic representation by denying voters real opportunities to select their leaders. This is vital reading to help understand why democratization often fails to meet its promise and identify new institutional reforms to better achieve it. &rdquo;
+            <cite>&mdash; Noah L. Nathan, Massachusetts Institute of Technology</cite> <br>
+          </blockquote> 
         </div>
       </div>
 
